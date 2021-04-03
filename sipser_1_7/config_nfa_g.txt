@@ -1,0 +1,10 @@
+Sigma:
+    e
+End
+
+States:
+    1,SF
+End
+
+Transitions:
+End
