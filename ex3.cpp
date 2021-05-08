@@ -19,5 +19,7 @@ int main(int argc, char **argv) {
     std::cout << "NFA-ul nu este valid\n";
   }
 
+  delete nfa;
+
   return 0;
 }

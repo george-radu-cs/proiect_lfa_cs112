@@ -14,5 +14,7 @@ int main(int argc, char **argv) {
     dfa2.scrieConfig(argv[2]);
   }
 
+  delete dfa1;
+
   return 0;
 }

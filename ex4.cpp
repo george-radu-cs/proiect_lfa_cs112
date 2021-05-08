@@ -15,5 +15,7 @@ int main(int argc, char **argv) {
     dfa.scrieConfig(argv[2]);
   }
 
+  delete nfa;
+
   return 0;
 }

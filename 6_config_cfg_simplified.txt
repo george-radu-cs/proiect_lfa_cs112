@@ -1,0 +1,8 @@
+S
+0
+{A, C, } -> non terminals
+{a, c, } -> terminals
+
+C -> c| 
+A -> a| 
+S -> AC| 

@@ -1,0 +1,13 @@
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+cfg_simplifier_engine
+dfa_acceptance_engine
+dfa_minimization_engine
+dfa_parser_engine
+lfa_exec
+nfa_acceptance_enginge
+transform_nfa_in_dfa_engine
+lib*
+

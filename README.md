@@ -50,7 +50,19 @@ Minimizam un DFA:
 
 > $ ./dfa_minimization_engine 5_config_dfa.txt 5_config_dfa_minimized.txt
 
+## Ex. 6
+
+Simplificarea unui CFG:
+
+> $ ./cfg_simplifier_engine 6_config_cfg.txt 6_config_cfg_simplified.txt
+
+> $ ./cfg_simplifier_engine 6_1_cfg.txt 6_config_cfg_simplified.txt
+
+> $ ./cfg_simplifier_engine 6_2_cfg.txt 6_config_cfg_simplified.txt
+
+> $ ./cfg_simplifier_engine 6_3_cfg.txt 6_config_cfg_simplified.txt
+
 ## TODO
 
-- Clean up la cod dimineata nu seara!
-- ex. 6 vezi gramatici
+- turing machine
+- translate all the project

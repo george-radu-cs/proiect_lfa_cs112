@@ -20,7 +20,7 @@ protected:
   /* functia de tranzitie */
   std::vector<std::tuple<int, char, int>> transitions;
 
-  bool creat_corect; /* retinem daca dfa ul este unul valid */
+  bool created_correctly; /* retinem daca dfa ul este unul valid */
 
   /* validam corectitudinea definirii dfa ului */
   virtual bool validareDate();
@@ -37,10 +37,10 @@ public:
       const int is, const std::vector<int> &final_states,
       const std::vector<std::tuple<int, char, int>> &transitions);
 
-  ~DFA() {} /* destructor */
+ virtual ~DFA() {} /* destructor */
 
   /* verificam daca DFA-ul a fost creat corect */
-  bool isCreated() const { return creat_corect; }
+  bool isCreated() const { return created_correctly; }
 
   /* metoda pentru a verifica daca dfa ul accepta un cuvant dat */
   bool acceptaCuvant(std::string cuvant);

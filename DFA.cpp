@@ -4,15 +4,15 @@ DFA::DFA(std::string file_name) {
   if (citireValidare(file_name)) {
     if (validareDate()) {
       std::cout << "Datele sunt valide, a fost creat DFA-ul\n";
-      creat_corect = true;
+      created_correctly = true;
     } else {
       std::cout << "Datele nu sunt valide, nu a fost creat DFA-ul\n";
-      creat_corect = false;
+      created_correctly = false;
     }
   } else {
     std::cout << "Nu a fost creat DFA-ul. Obiectul creat poate contine erori "
                  "in informatie\n";
-    creat_corect = false;
+    created_correctly = false;
   }
 }
 
@@ -43,7 +43,7 @@ DFA::DFA(const std::vector<char> &sigma, const std::vector<int> &states,
     this->transitions.push_back(std::tuple<int, char, int>(s1, l, s2));
   }
   if (this->validareDate()) {
-    this->creat_corect = true;
+    this->created_correctly = true;
     std::cout << "Datele sunt valide, a fost creat DFA-ul\n";
   }
 }
@@ -139,7 +139,7 @@ bool DFA::citireValidare(std::string file_name) {
    * delimitare[1] nr aparitii pt States
    * delimitare[2] nr aparitii pt Transitions */
   int delimitare[3] = {0, 0, 0};
-  int line_number{1};
+  int line_number{0};
   std::string curr_section{""};
   std::string line;
   bool config_incorect{false};
@@ -151,9 +151,12 @@ bool DFA::citireValidare(std::string file_name) {
     line.erase(std::remove_if(line.begin(), line.end(),
                               [](unsigned char x) { return std::isspace(x); }),
                line.end());
+    ++line_number;
+
     /* daca linia curenta este goala sau este un comentariu */
-    if (line[0] == '#' || line.empty())
+    if (line[0] == '#' || line.empty()) {
       continue;
+    }
 
     if (line == "End") { /* daca am intalnit separatorul end */
       /* verificam ca avem ce sectiune sa inchidem */
@@ -350,8 +353,6 @@ bool DFA::citireValidare(std::string file_name) {
         }
       }
     }
-
-    ++line_number;
   }
 
   fin.close(); /* inchidem fisierul dupa ce am terminat de citit configul */
@@ -364,17 +365,22 @@ bool DFA::citireValidare(std::string file_name) {
     if (delimitare[i] != 1) {
       switch (i) {
       case 0:
-        std::cout << "Nu exista Sigma\n";
+        std::cout << "Nu exista sectiunea Sigma\n";
         break;
+
       case 1:
-        std::cout << "Nu exista Stari\n";
+        std::cout << "Nu exista sectiunea Stari\n";
         break;
+
       case 2:
-        std::cout << "Nu exista Tranzitii\n";
+        std::cout << "Nu exista sectiunea Tranzitii\n";
         break;
+
       default:
         break;
       }
+
+      /* daca cel putin o sectiune lipseste, atunci configul nu este valid */
       return false;
     }
   }
@@ -384,7 +390,7 @@ bool DFA::citireValidare(std::string file_name) {
     return false;
   }
 
-  /* daca am citit tot configul si nu am gasit erori sintactice returnam true */
+  /* daca am citit tot configul si nu am gasit erori semantice returnam true */
   return true;
 }
 

@@ -1,0 +1,31 @@
+Start:
+    S
+End
+
+Epsilon:
+    0
+End
+
+Terminals:
+    a
+
+    b
+End
+
+Nonterminals:
+    X
+    Y
+    Z
+    M
+    N
+    
+End
+
+Productions:
+    S XY
+    X a
+    Y Z|b
+    Z M
+    M N
+    N a
+End

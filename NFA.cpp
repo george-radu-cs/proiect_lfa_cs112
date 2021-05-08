@@ -4,14 +4,14 @@ NFA::NFA(std::string file_name) : DFA() {
   if (citireValidare(file_name)) {
     if (validareDate()) {
       std::cout << "Datele sunt valide, a fost creat NFA-ul\n";
-      creat_corect = true;
+      created_correctly = true;
     } else {
       std::cout << "Datele nu sunt valide, nu a fost creat NFA-ul\n";
-      creat_corect = false;
+      created_correctly = false;
     }
   } else {
     std::cout << "nu a fost creat NFA-ul\n";
-    creat_corect = false;
+    created_correctly = false;
   }
 }
 

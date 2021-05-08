@@ -1,0 +1,28 @@
+Start:
+    S
+End
+
+Epsilon:
+    0
+End
+
+Terminals:
+    a
+
+    c
+    e
+End
+
+Nonterminals:
+    A
+    B
+    C
+    E
+End
+
+Productions:
+    S AC|B
+    A a
+    C c|BC
+    E aA|e
+End

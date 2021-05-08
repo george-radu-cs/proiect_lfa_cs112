@@ -12,7 +12,7 @@ private:
   /* functia de tranzitie */
   /* std::vector<std::tuple<int, char, int>> transitions; */
 
-  /* bool creat_corect; /1* retinem daca nfa ul este unul valid *1/ */
+  /* bool created_correctly; /1* retinem daca nfa ul este unul valid *1/ */
 
   /* validam corectitudinea definirii nfa ului */
   bool validareDate() override;
@@ -25,10 +25,10 @@ public:
 
   NFA(std::string file_name); /* constructor cu param nume fisier config */
 
-  ~NFA() {} /* destructor */
+ virtual ~NFA() {} /* destructor */
 
   /* verificam daca NFA-ul a fost creat corect */
-  bool isCreated() const { return creat_corect; }
+  bool isCreated() const { return created_correctly; }
 
   /* metoda pentru a verifica daca nfa ul accepta un cuvant dat
    * trimitem cuvantul si starea curenta, pentru apelul functiei din exteriorul
